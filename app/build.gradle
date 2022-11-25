@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId "com.yigit.catchthekenny"
-        minSdkVersion 25
-        targetSdkVersion 33
+        minSdkVersion 16
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 

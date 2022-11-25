@@ -28,10 +28,18 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        //Create Image Array
-        createImageArray()
-        //Start Timer
-        startTimer()
+        val intent = intent
+        val isStarted = intent.getBooleanExtra("isStarted",true)
+
+        if(isStarted){
+            //Create Image Array
+            createImageArray()
+            //Start Timer
+            startTimer()
+        }
+
+
+
     }
 
     private fun createImageArray(){
@@ -55,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             val random = Random()
             val randomIndex = random.nextInt(9)
             imageArray[randomIndex].visibility = View.VISIBLE
-            handler.postDelayed(runnable,500)
+            handler.postDelayed(runnable,300)
         }
         handler.post(runnable)
     }
@@ -91,6 +99,7 @@ class MainActivity : AppCompatActivity() {
         var alert = AlertDialog.Builder(this@MainActivity)
         alert.setTitle("Game Over")
         alert.setMessage("Restart Game?")
+        alert.setCancelable(false)
         alert.setPositiveButton("Yes"){dialog,which->
             //Restart
             val intent = intent
